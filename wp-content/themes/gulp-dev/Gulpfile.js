@@ -26,7 +26,7 @@ gulp.task('css', function() {
 	return gulp.src(scss + '{style.scss,rtl.scss}')
 	.pipe(sourcemaps.init())
 	.pipe(sass({
-		outputStyle: 'expanded', 
+		outputStyle: 'expanded',
 		indentType: 'tab',
 		indentWidth: '1'
 	}).on('error', sass.logError))
@@ -56,15 +56,32 @@ gulp.task('javascript', function() {
 
 // Watch everything
 gulp.task('watch', function() {
-	browserSync.init({ 
-		open: 'external',
-		proxy: 'humescores.dev',
-		port: 8080
+	browserSync.init({
+		// open: 'external',
+		// proxy: 'humescores.dev',
+		// port: 8080
 	});
 	gulp.watch([root + '**/*.css', root + '**/*.scss' ], ['css']);
 	gulp.watch(js + '**/*.js', ['javascript']);
 	gulp.watch(img + 'RAW/**/*.{jpg,JPG,png}', ['images']);
 	gulp.watch(root + '**/*').on('change', browserSync.reload);
+});
+
+//Livereload
+var gulp = require('gulp'),
+    // less = require('gulp-less'),
+    livereload = require('gulp-livereload');
+
+gulp.task('less', function() {
+  gulp.src('less/*.less')
+    .pipe(less())
+    .pipe(gulp.dest('css'))
+    .pipe(livereload());
+});
+
+gulp.task('watch', function() {
+  livereload.listen();
+  gulp.watch('less/*.less', ['less']);
 });
 
 
