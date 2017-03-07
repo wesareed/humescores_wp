@@ -58,8 +58,8 @@ gulp.task('javascript', function() {
 gulp.task('watch', function() {
 	browserSync.init({
 		open: 'external',
-		proxy: 'humescores.dev',
-		port: 8080
+		proxy: 'humescores.dev:8888',
+		port: 8888
 	});
 	gulp.watch([root + '**/*.css', root + '**/*.scss' ], ['css']);
 	gulp.watch(js + '**/*.js', ['javascript']);
