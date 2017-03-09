@@ -181,6 +181,8 @@ function humescores_scripts() {
 		'expand' => __( 'Expand child menu', 'humescores'),
 		'collapse' => __( 'Collapse child menu', 'humescores'),
 	));
+        
+        wp_enqueue_script( 'humescores-functions', get_template_directory_uri() . '/js/functions.js', array('jquery'), '20170309', true );
 
 	wp_enqueue_script( 'humescores-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
