@@ -1,8 +1,8 @@
 /*!
 Theme Name: Humescores
-Theme URI: https://github.com/mor10/humescores/
-Author: Morten Rand-Hendriksen
-Author URI: https://mor10.com/courses
+Theme URI: https://github.com/wesareed/humescores_wp
+Author: Wes Reed
+Author URI: https://wesreed.co/
 Description: A new theme for a new time. This theme showcases the best of WordPress and Underscores and is the project for the Building Themes From Scratch Using Underscores course at LinkedIn Learning and Lynda.com.
 Version: 1.0.0
 License: GNU General Public License v2 or later
@@ -442,36 +442,29 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	border: 1px solid;
-	border-color: #ccc #ccc #bbb;
-	border-radius: 3px;
-	background: #e6e6e6;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), inset 0 15px 17px rgba(255, 255, 255, 0.5), inset 0 -5px 12px rgba(0, 0, 0, 0.05);
-	color: rgba(0, 0, 0, 0.8);
-	font-size: 15px;
-	font-size: 0.9375rem;
+	border: 2px solid;
+	border-color: black;
+	background: transparent;
+	color: black;
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+	font-size: 20px;
+	font-size: 1.25rem;
 	line-height: 1;
-	padding: .6em 1em .4em;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+	padding: .5em 1em;
 }
 
-button:hover,
+button:hover, button:active, button:focus,
 input[type="button"]:hover,
-input[type="reset"]:hover,
-input[type="submit"]:hover {
-	border-color: #ccc #bbb #aaa;
-	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8), inset 0 15px 17px rgba(255, 255, 255, 0.8), inset 0 -5px 12px rgba(0, 0, 0, 0.02);
-}
-
-button:active, button:focus,
 input[type="button"]:active,
 input[type="button"]:focus,
+input[type="reset"]:hover,
 input[type="reset"]:active,
 input[type="reset"]:focus,
+input[type="submit"]:hover,
 input[type="submit"]:active,
 input[type="submit"]:focus {
-	border-color: #aaa #bbb #bbb;
-	box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.5), inset 0 2px 5px rgba(0, 0, 0, 0.15);
+	background: white;
+	color: black;
 }
 
 input[type="text"],
@@ -778,7 +771,7 @@ a:hover, a:active {
 	}
 }
 
-/* 
+/*
 Header Menu
 */
 .main-navigation {
@@ -841,15 +834,8 @@ Header Menu
 	text-decoration: underline;
 }
 
-.main-navigation .current_page_item > a,
-.main-navigation .current-menu-item > a,
-.main-navigation .current_page_ancestor > a,
-.main-navigation .current-menu-ancestor > a {
-	background-color: rgba(76, 175, 80, 0.1);
-}
-
 .main-navigation .menu-item-has-children,
-.main-navigation .page-item-has-children {
+.main-navigation .page_item_has_children {
 	min-width: 218px;
 }
 
@@ -881,7 +867,7 @@ button.dropdown-toggle {
 	border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
-/* Toggle small menu and sub-menus on */
+/* Toggle small menu and children on */
 .toggled-on ul,
 .sub-menu.toggled-on {
 	display: block;
@@ -930,6 +916,13 @@ button.dropdown-toggle {
 		    -ms-flex-pack: end;
 		        justify-content: flex-end;
 		padding-top: 0;
+		/* If you want dropdowns to open on hover, uncomment this: */
+		/*
+			li:hover > ul,
+				li:focus > ul {
+				display: block;
+			}
+			*/
 	}
 }
 
@@ -974,6 +967,47 @@ button.dropdown-toggle {
 
 .bypostauthor {
 	display: block;
+}
+
+/*--------------------------------------------------------------
+## Footer
+--------------------------------------------------------------*/
+.site-footer {
+	position: relative;
+	padding: 1em;
+	font-family: "Source Sans Pro", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Arial, sans-serif;
+	color: #fff;
+	background-color: #002254;
+	text-align: center;
+}
+
+@media screen and (min-width: 600px) {
+	.site-footer {
+		padding: 1em 2em;
+	}
+}
+
+.social-menu ul {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.social-menu ul a {
+	display: block;
+	padding: .5em 1em;
+	color: white;
+	text-decoration: none;
+}
+
+.social-menu ul a:hover, .social-menu ul a:focus {
+	text-decoration: underline;
 }
 
 /*--------------------------------------------------------------
